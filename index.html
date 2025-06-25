@@ -16,7 +16,7 @@
         }
         form {
             background: white;
-            padding: 30px;  /* Más espacio interno */
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
@@ -31,7 +31,7 @@
         label {
             display: flex;
             align-items: center;
-            gap: 10px; /* Espacio entre texto y cuadro */
+            gap: 10px;
             margin-top: 10px;
         }
         input[type="text"], input[type="email"] {
@@ -40,13 +40,22 @@
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 5px; /* Espacio inferior */
+            margin-bottom: 5px;
         }
         .input-mediano {
             width: 60% !important;
         }
+        .input-mediano-chico {
+            width: 40% !important;
+        }
         .input-pequeño {
             width: 150px !important;
+        }
+        .row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .button-container {
             text-align: center;
@@ -73,12 +82,16 @@
             <h2>Datos generales</h2>
             <label>Razón social:<input type="text" name="razon_social" required></label>
             <label>Actividad:<input type="text" name="actividad" required></label>
-            <label>RFC:<input type="text" name="rfc" class="input-mediano" required></label>
+            <label>RFC:<input type="text" name="rfc" class="input-mediano-chico" required></label>
             <label>Autoridad de registro:<input type="text" name="autoridad_registro"></label>
             <label>Registro del CCT / Folio:<input type="text" name="registro_cct"></label>
-            <label>Fecha de legitimación:<input type="text" name="fecha_legitimacion" class="input-pequeño"></label>
-            <label>Vigencia:<input type="text" name="vigencia" class="input-pequeño"></label>
-            <label>Coordinación Sindical:<input type="text" name="coordinacion_sindical" class="input-mediano"></label>
+            
+            <div class="row">
+                <label>Fecha de legitimación:<input type="text" name="fecha_legitimacion" class="input-pequeño"></label>
+                <label>Vigencia:<input type="text" name="vigencia" class="input-pequeño"></label>
+            </div>
+            
+            <label>Coordinación Sindical:<input type="text" name="coordinacion_sindical" class="input-mediano-chico"></label>
         </div>
 
         <div class="section">
