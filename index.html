@@ -8,7 +8,7 @@
             font-family: Arial, sans-serif;
             background: #f9f9f9;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
         }
         h1 {
@@ -58,9 +58,9 @@
         }
         .row {
             display: flex;
-            gap: 20px;
+            gap: 40px;
             align-items: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         .button-container {
             text-align: center;
@@ -83,6 +83,8 @@
 <body>
     <h1>Registro de Empresas Contratantes</h1>
     <form action="https://formsubmit.co/suterm.padrones@outlook.com" method="POST">
+
+        <!-- DATOS GENERALES -->
         <div class="section">
             <h2>Datos generales</h2>
             <label><span class="label-text">Razón social:</span>
@@ -115,43 +117,52 @@
             </label>
         </div>
 
+        <!-- APODERADO LEGAL -->
         <div class="section">
             <h2>Apoderado legal (Firmante del CCT)</h2>
             <label><span class="label-text">Nombre completo:</span>
                 <input type="text" name="apoderado_nombre" class="input-grande">
             </label>
-            <label><span class="label-text">Email:</span>
-                <input type="email" name="apoderado_email" class="input-mediano">
-            </label>
-            <label><span class="label-text">Teléfono móvil:</span>
-                <input type="text" name="apoderado_movil" class="input-pequeño">
-            </label>
+            <div class="row">
+                <label><span class="label-text">Email:</span>
+                    <input type="email" name="apoderado_email" class="input-mediano">
+                </label>
+                <label><span class="label-text">Teléfono móvil:</span>
+                    <input type="text" name="apoderado_movil" class="input-pequeño">
+                </label>
+            </div>
         </div>
 
+        <!-- TITULAR RRHH -->
         <div class="section">
             <h2>Titular de contratación y nóminas (RR.HH./Personal)</h2>
             <label><span class="label-text">Nombre completo:</span>
                 <input type="text" name="rrhh_nombre" class="input-grande">
             </label>
-            <label><span class="label-text">Email:</span>
-                <input type="email" name="rrhh_email" class="input-mediano">
-            </label>
-            <label><span class="label-text">Teléfono móvil:</span>
-                <input type="text" name="rrhh_movil" class="input-pequeño">
-            </label>
+            <div class="row">
+                <label><span class="label-text">Email:</span>
+                    <input type="email" name="rrhh_email" class="input-mediano">
+                </label>
+                <label><span class="label-text">Teléfono móvil:</span>
+                    <input type="text" name="rrhh_movil" class="input-pequeño">
+                </label>
+            </div>
         </div>
 
+        <!-- DOMICILIO -->
         <div class="section">
             <h2>Domicilio del centro de trabajo</h2>
             <label><span class="label-text">Calle:</span>
                 <input type="text" name="calle" class="input-grande">
             </label>
-            <label><span class="label-text">Número exterior:</span>
-                <input type="text" name="num_ext" class="input-pequeño">
-            </label>
-            <label><span class="label-text">Número interior:</span>
-                <input type="text" name="num_int" class="input-pequeño">
-            </label>
+            <div class="row">
+                <label><span class="label-text">Número exterior:</span>
+                    <input type="text" name="num_ext" class="input-pequeño">
+                </label>
+                <label><span class="label-text">Número interior:</span>
+                    <input type="text" name="num_int" class="input-pequeño">
+                </label>
+            </div>
             <label><span class="label-text">Colonia:</span>
                 <input type="text" name="colonia" class="input-mediano">
             </label>
@@ -169,6 +180,7 @@
             </label>
         </div>
 
+        <!-- ENVIAR -->
         <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
         <input type="hidden" name="_captcha" value="false">
 
