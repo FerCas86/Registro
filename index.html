@@ -5,179 +5,210 @@
     <title>Registro de Empresas Contratantes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 30px;
         }
         h1 {
             text-align: center;
+            color: #333;
         }
         form {
-            background: white;
-            padding: 30px;
+            background-color: white;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .section h2 {
             font-size: 18px;
-            margin-bottom: 10px;
-            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
         }
         label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
         }
-        .label-text {
-            width: 200px;
-            text-align: right;
-        }
-        input[type="text"], input[type="email"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-        .input-grande {
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
             width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
         }
-        .input-mediano {
-            width: 60%;
-        }
-        .input-mediano-chico {
-            width: 40%;
-        }
-        .input-pequeño {
-            width: 150px;
+        input:focus,
+        select:focus {
+            border-color: #4285f4;
+            outline: none;
         }
         .row {
             display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: nowrap;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .row label {
+            flex: 1;
+            min-width: 240px;
         }
         .button-container {
             text-align: center;
-            margin-top: 20px;
         }
         button {
-            background-color: #0078D7;
+            background-color: #4285f4;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 30px;
+            border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #005bb5;
+            background-color: #3367d6;
         }
     </style>
 </head>
 <body>
+
     <h1>Registro de Empresas Contratantes</h1>
+
     <form action="https://formsubmit.co/suterm.padrones@outlook.com" method="POST">
 
         <!-- DATOS GENERALES -->
         <div class="section">
-            <h2>Datos generales</h2>
-            <label><span class="label-text">Razón social:</span>
-                <input type="text" name="razon_social" class="input-grande" required>
+            <h2>Datos Generales</h2>
+
+            <label>Razón Social
+                <input type="text" name="razon_social" required>
             </label>
-            <label><span class="label-text">Actividad:</span>
-                <input type="text" name="actividad" class="input-grande" required>
+
+            <label>Actividad
+                <input type="text" name="actividad" required>
             </label>
-            <label><span class="label-text">RFC:</span>
-                <input type="text" name="rfc" class="input-mediano-chico" required>
+
+            <label>RFC
+                <input type="text" name="rfc" required pattern="[A-ZÑ&]{3,4}\d{6}[A-Z\d]{3}" title="Formato de RFC válido">
             </label>
-            <label><span class="label-text">Autoridad de registro:</span>
-                <input type="text" name="autoridad_registro" class="input-grande">
+
+            <label>Autoridad de Registro
+                <input type="text" name="autoridad_registro" required>
             </label>
-            <label><span class="label-text">Registro del CCT / Folio:</span>
-                <input type="text" name="registro_cct" class="input-grande">
+
+            <label>Registro del CCT / Folio
+                <input type="text" name="registro_cct" required>
             </label>
 
             <div class="row">
-                <label><span class="label-text">Fecha de legitimación:</span>
-                    <input type="text" name="fecha_legitimacion" class="input-pequeño">
+                <label>Fecha de Legitimación
+                    <input type="date" name="fecha_legitimacion" required>
                 </label>
-                <label><span class="label-text">Vigencia:</span>
-                    <input type="text" name="vigencia" class="input-pequeño">
+
+                <label>Vigencia
+                    <input type="date" name="vigencia" required>
                 </label>
             </div>
 
-            <label><span class="label-text">Coordinación Sindical:</span>
-                <input type="text" name="coordinacion_sindical" class="input-mediano-chico">
+            <label>Coordinación Sindical
+                <select name="coordinacion_sindical" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Zona Centro">Zona Centro</option>
+                    <option value="Zona Norte">Zona Norte</option>
+                    <option value="Zona Sur">Zona Sur</option>
+                    <option value="Zona Occidente">Zona Occidente</option>
+                    <option value="Otra">Otra</option>
+                </select>
             </label>
         </div>
 
         <!-- APODERADO LEGAL -->
         <div class="section">
-            <h2>Apoderado legal (Firmante del CCT)</h2>
-            <label><span class="label-text">Nombre completo:</span>
-                <input type="text" name="apoderado_nombre" class="input-grande">
+            <h2>Apoderado Legal (Firmante del CCT)</h2>
+
+            <label>Nombre Completo
+                <input type="text" name="apoderado_nombre" required>
             </label>
+
             <div class="row">
-                <label><span class="label-text">Email:</span>
-                    <input type="email" name="apoderado_email" class="input-mediano">
+                <label>Email
+                    <input type="email" name="apoderado_email" required>
                 </label>
-                <label><span class="label-text">Teléfono móvil:</span>
-                    <input type="text" name="apoderado_movil" class="input-pequeño">
+
+                <label>Teléfono Móvil
+                    <input type="tel" name="apoderado_movil" required pattern="[0-9]{10}" title="Debe tener 10 dígitos">
                 </label>
             </div>
         </div>
 
-        <!-- TITULAR RRHH -->
+        <!-- TITULAR DE CONTRATACIÓN Y NÓMINAS -->
         <div class="section">
-            <h2>Titular de contratación y nóminas (RR.HH./Personal)</h2>
-            <label><span class="label-text">Nombre completo:</span>
-                <input type="text" name="rrhh_nombre" class="input-grande">
+            <h2>Titular de Contratación y Nóminas (RR.HH./Personal)</h2>
+
+            <label>Nombre Completo
+                <input type="text" name="rrhh_nombre" required>
             </label>
+
             <div class="row">
-                <label><span class="label-text">Email:</span>
-                    <input type="email" name="rrhh_email" class="input-mediano">
+                <label>Email
+                    <input type="email" name="rrhh_email" required>
                 </label>
-                <label><span class="label-text">Teléfono móvil:</span>
-                    <input type="text" name="rrhh_movil" class="input-pequeño">
+
+                <label>Teléfono Móvil
+                    <input type="tel" name="rrhh_movil" required pattern="[0-9]{10}" title="Debe tener 10 dígitos">
                 </label>
             </div>
         </div>
 
         <!-- DOMICILIO -->
         <div class="section">
-            <h2>Domicilio del centro de trabajo</h2>
-            <label><span class="label-text">Calle:</span>
-                <input type="text" name="calle" class="input-grande">
+            <h2>Domicilio del Centro de Trabajo</h2>
+
+            <label>Calle
+                <input type="text" name="calle" required>
             </label>
+
             <div class="row">
-                <label><span class="label-text">Número exterior:</span>
-                    <input type="text" name="num_ext" class="input-pequeño">
+                <label>Número Exterior
+                    <input type="text" name="num_ext" required>
                 </label>
-                <label><span class="label-text">Número interior:</span>
-                    <input type="text" name="num_int" class="input-pequeño">
+
+                <label>Número Interior
+                    <input type="text" name="num_int">
                 </label>
             </div>
-            <label><span class="label-text">Colonia:</span>
-                <input type="text" name="colonia" class="input-mediano">
+
+            <label>Colonia
+                <input type="text" name="colonia" required>
             </label>
-            <label><span class="label-text">Localidad:</span>
-                <input type="text" name="localidad" class="input-mediano">
+
+            <label>Localidad
+                <input type="text" name="localidad" required>
             </label>
-            <label><span class="label-text">Municipio o Alcaldía:</span>
-                <input type="text" name="municipio" class="input-mediano">
+
+            <label>Municipio o Alcaldía
+                <input type="text" name="municipio" required>
             </label>
-            <label><span class="label-text">Estado:</span>
-                <input type="text" name="estado" class="input-pequeño">
-            </label>
-            <label><span class="label-text">Código postal:</span>
-                <input type="text" name="cp" class="input-pequeño">
-            </label>
+
+            <div class="row">
+                <label>Estado
+                    <input type="text" name="estado" required>
+                </label>
+
+                <label>Código Postal
+                    <input type="text" name="cp" required pattern="[0-9]{5}" title="Debe tener 5 dígitos">
+                </label>
+            </div>
         </div>
 
         <!-- ENVIAR -->
@@ -188,5 +219,6 @@
             <button type="submit">Enviar</button>
         </div>
     </form>
+
 </body>
 </html>
