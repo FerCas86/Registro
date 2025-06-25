@@ -11,13 +11,15 @@
             max-width: 800px;
             margin: auto;
         }
-        h1 { text-align: center; }
+        h1 {
+            text-align: center;
+        }
         form {
             background: white;
-            padding: 20px;
+            padding: 30px;  /* Más espacio interno */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        } 
+        }
         .section {
             margin-bottom: 20px;
         }
@@ -27,7 +29,9 @@
             text-align: center;
         }
         label {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espacio entre texto y cuadro */
             margin-top: 10px;
         }
         input[type="text"], input[type="email"] {
@@ -36,6 +40,7 @@
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-bottom: 5px; /* Espacio inferior */
         }
         .input-mediano {
             width: 60% !important;
